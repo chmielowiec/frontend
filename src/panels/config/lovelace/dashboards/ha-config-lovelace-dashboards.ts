@@ -59,6 +59,7 @@ export class HaConfigLovelaceDashboards extends LitElement {
           sortable: true,
           filterable: true,
           direction: "asc",
+          grows: true,
         },
         mode: {
           title: this.hass.localize(
@@ -66,6 +67,7 @@ export class HaConfigLovelaceDashboards extends LitElement {
           ),
           sortable: true,
           filterable: true,
+          width: "15%",
           template: (mode) =>
             html`
               ${this.hass.localize(
@@ -82,6 +84,7 @@ export class HaConfigLovelaceDashboards extends LitElement {
           ),
           sortable: true,
           filterable: true,
+          width: "15%",
         };
       }
 
@@ -92,6 +95,7 @@ export class HaConfigLovelaceDashboards extends LitElement {
           ),
           sortable: true,
           type: "icon",
+          width: "100px",
           template: (requireAdmin: boolean) =>
             requireAdmin
               ? html`
@@ -106,6 +110,7 @@ export class HaConfigLovelaceDashboards extends LitElement {
             "ui.panel.config.lovelace.dashboards.picker.headers.sidebar"
           ),
           type: "icon",
+          width: "100px",
           template: (sidebar) =>
             sidebar
               ? html`
@@ -117,8 +122,9 @@ export class HaConfigLovelaceDashboards extends LitElement {
         },
         url_path: {
           title: "",
-          type: "icon",
+          type: "numeric",
           filterable: true,
+          width: "75px",
           template: (urlPath) =>
             html`
               <mwc-button .urlPath=${urlPath} @click=${this._navigate}
